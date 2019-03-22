@@ -7,6 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex("ingredients").insert([
         { ingredient_name: "corn tortilla" },
         { ingredient_name: "flour tortilla" },
+        { ingredient_name: "beef" },
         { ingredient_name: "egg(s)" },
         { ingredient_name: "vinegar" },
         { ingredient_name: "olive oil" },
