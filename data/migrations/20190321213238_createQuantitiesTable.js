@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
       .notNullable()
       .unsigned()
       .references("id")
-      .onTable("units")
+      .inTable("units")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
     tbl
