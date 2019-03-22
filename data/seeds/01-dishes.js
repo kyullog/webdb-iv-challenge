@@ -7,11 +7,10 @@ exports.seed = function(knex, Promise) {
       return knex("dishes").insert([
         { dish_name: "Yummy Tacos" },
         { dish_name: "Supreme Pizza" },
-        { dish_name: "Scrambled Eggs" },
+        { dish_name: "Eggs" },
         { dish_name: "S&P Catfish" },
         { dish_name: "Hot Wings" },
-        { dish_name: "Ham and Cheese Sandwich" },
-        { dish_name: "Grilled Cheese Sandwich" }
+        { dish_name: "Grilled Sandwich" }
       ]);
     });
 };
