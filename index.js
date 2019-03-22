@@ -1,15 +1,4 @@
-const db = require("./data/dbHelper.js");
+const server = require("./server.js");
+const port = 2525;
 
-const dish = { dish_name: "Fried Wombat" };
-
-const recipe = { recipe_name: "Spicy Wombat", dish_id: 10 };
-
-const consoleLogger = response => console.log(response);
-
-[
-  db.getDishes(),
-  db.getDish(4),
-  db.addDish(dish),
-  db.addRecipe(recipe),
-  db.getRecipes()
-].forEach(promise => promise.then(consoleLogger).catch(console.logger));
+server.listen(port, () => console.log(`Server is listening on port ${port}`));
