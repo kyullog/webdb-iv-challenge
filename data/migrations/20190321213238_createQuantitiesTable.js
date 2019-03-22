@@ -4,8 +4,7 @@ exports.up = function(knex, Promise) {
     tbl
       .float("amount")
       .unsigned()
-      .notNullable()
-      .unique();
+      .notNullable();
     tbl
       .integer("unit_id")
       .notNullable()
