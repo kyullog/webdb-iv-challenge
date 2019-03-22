@@ -15,5 +15,13 @@ module.exports = {
     return db("recipes")
       .select("recipes.id", "recipe_name as recipe", "dishes.dish_name")
       .innerJoin("dishes", "recipes.dish_id", "dishes.id");
+  },
+
+  addDish: dish => {
+    return db("dishes").insert(dish);
+  },
+
+  addRecipe: recipe => {
+    return db("recipes").insert(recipe);
   }
 };
