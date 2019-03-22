@@ -1,10 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("units", tbl => {
     tbl.increments();
-    tbl
-      .string("unit_name")
-      .unique()
-      .notNullable();
+    tbl.string("unit_name").notNullable();
   });
 };
 
