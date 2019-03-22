@@ -7,3 +7,7 @@ db.getDishes()
 db.getDish(4)
   .then(dish => console.log(dish))
   .catch(err => console.log(err));
+
+db.getRecipes()
+  .then(recipes => console.log(recipes))
+  .catch(err => console.log(err));
