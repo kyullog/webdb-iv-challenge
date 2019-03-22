@@ -1,3 +1,14 @@
+const foreignId = (tbl, refTable, refColumn) => {
+  tbl
+    .integer(`${refColumn}_id`)
+    .notNullable()
+    .unsigned()
+    .references("id")
+    .inTable(refTable)
+    .onDelete("CASCADE")
+    .onUpdate("CASCADE");
+};
+
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("quantities", tbl => {
     tbl.increments();
@@ -5,30 +16,9 @@ exports.up = function(knex, Promise) {
       .float("amount")
       .unsigned()
       .notNullable();
-    tbl
-      .integer("unit_id")
-      .notNullable()
-      .unsigned()
-      .references("id")
-      .inTable("units")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE");
-    tbl
-      .integer("ingredient_id")
-      .notNullable()
-      .unsigned()
-      .references("id")
-      .inTable("ingredients")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE");
-    tbl
-      .integer("recipe_id")
-      .notNullable()
-      .unsigned()
-      .references("id")
-      .inTable("recipes")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE");
+    foreignId(tbl, "units", "unit");
+    foreignId(tbl, "ingredients", "ingredient");
+    foreignId(tbl, "recipes", "recipe");
   });
 };
 
